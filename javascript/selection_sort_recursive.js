@@ -1,9 +1,9 @@
 const selectionSortRecursive = (arr, result = []) => {
-  let min = Math.min(...arr)
-  let index = arr.indexOf(min)
   if (arr === undefined || arr.length === 0) return result
-  result.push(min)
-  return selectionSortRecursive(arr.filter((n, i) => i !== index), result)
+  const min = Math.min(...arr)
+  const index = arr.indexOf(min)
+  const sorted = result.concat([min])
+  return selectionSortRecursive(arr.filter((n, i) => i !== index), sorted)
 }
 
 if (require.main === module) {
